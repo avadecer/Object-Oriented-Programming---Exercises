@@ -1,0 +1,82 @@
+/*
+* Created by SharpDevelop.
+* User: Ann
+* Date: 6/5/2021
+* Time: 8:17 PM
+*
+* To change this template use Tools | Options | Coding | Edit Standard Headers.
+*/
+using System;
+using System.Collections.Generic;
+using System.Drawing;
+using System.Windows.Forms;
+namespace CruiseShip
+{
+ /// <summary>
+ /// Description of MainForm.
+ /// </summary>
+ public partial class MainForm : Form
+ {
+ public MainForm()
+ {
+ //
+ // The InitializeComponent() call is required for Windows Forms designer support.
+ //
+ InitializeComponent();
+
+ //
+ // TODO: Add constructor code after the InitializeComponent() call.
+ //
+ }
+ void RadioButton1CheckedChanged(object sender, EventArgs e)
+ {
+ if (radioButton1.Checked)
+ {
+ toiletcbx.Checked = true;
+ mealscbx.Checked = true;
+ textBox1.Text = string.Format("Php {0:#,0.00}", 1500);
+ }
+ }
+ void RadioButton2CheckedChanged(object sender, EventArgs e)
+ {
+ if (radioButton2.Checked)
+ {
+ toiletcbx.Checked = true;
+ airconcbx.Checked = true;
+ bedcbx.Checked = true;
+ mealscbx.Checked = true;
+ textBox1.Text = string.Format("Php {0:#,0.00}", 2500);
+ }
+ }
+ void RadioButton3CheckedChanged(object sender, EventArgs e)
+ {
+ if (radioButton3.Checked)
+ {
+ toiletcbx.Checked = true;
+ airconcbx.Checked = true;
+ tvcbx.Checked = true;
+ bedcbx.Checked = true;
+ mealscbx.Checked = true;
+ vipcbx. Checked = true;
+ textBox1.Text = string.Format("Php {0:#,0.00}", 4000);
+ }
+ }
+ void Button1Click(object sender, EventArgs e)
+ {
+ toiletcbx.Checked = false;
+ airconcbx.Checked = false;
+ tvcbx.Checked = false;
+ bedcbx.Checked = false;
+ mealscbx.Checked = false;
+ vipcbx. Checked = false;
+ radioButton1.Checked = false;
+ radioButton2.Checked = false;
+ radioButton3.Checked = false;
+ textBox1.Clear();
+ }
+ void Button2Click(object sender, EventArgs e)
+ {
+ Application.Exit();
+ }
+ }
+}
