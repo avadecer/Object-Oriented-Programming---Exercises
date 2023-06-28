@@ -1,0 +1,257 @@
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.Data.SqlClient;
+
+namespace WindowsFormsApp1
+{
+    public partial class Form5 : Form
+    {
+        int count = 0;
+
+        public Form5()
+        {
+            InitializeComponent();
+            txtbx_amount.Text = "0";
+            txtbx_amounttendered.Text = "0";
+            txtbx_change.Text = "0";
+            txtbx_subtotal.Text = "0";
+            txtbx_total.Text = "0";
+            txtbx_dateandtime.Text = DateTime.Now.ToString("MMM dd yyyy,hh:mm:ss");
+
+        }
+
+
+        private void lstbx_appliances_DoubleClick(object sender, EventArgs e)
+        {
+
+            if (num_quantity.Value == 0)
+            {
+                MessageBox.Show("Please input quantity.");
+                lstbx_soldappliances.Items.Clear();
+                lstbx_unitprice.Items.Clear();
+            }
+
+            int quant = Convert.ToInt32(num_quantity.Value);
+            if (quant >= 1)
+            {
+                lstbx_soldappliances.Items.Add(lstbx_appliances.SelectedItems[0]);
+                if (lstbx_appliances.Text == "Air Conditioner")
+                {
+                    lstbx_unitprice.Items.Add("10,000.00");
+                    int amnt = 10000 * quant;
+                    txtbx_amount.Text = amnt.ToString();
+                    count = count + amnt;
+                    txtbx_subtotal.Text = count.ToString();
+                }
+
+                else if (lstbx_appliances.Text == "Electric Fan")
+                {
+                    lstbx_unitprice.Items.Add("500.00");
+                    int amnt = 500 * quant;
+                    txtbx_amount.Text = amnt.ToString();
+                    count = count + amnt;
+                    txtbx_subtotal.Text = count.ToString();
+                }
+
+                else if (lstbx_appliances.Text == "Electric Pot")
+                {
+                    lstbx_unitprice.Items.Add("800.00");
+                    int amnt = 800 * quant;
+                    txtbx_amount.Text = amnt.ToString();
+                    count = count + amnt;
+                    txtbx_subtotal.Text = count.ToString();
+                }
+
+                else if (lstbx_appliances.Text == "Electric Stove")
+                {
+                    lstbx_unitprice.Items.Add("1,000.00");
+                    int amnt = 1000 * quant;
+                    txtbx_amount.Text = amnt.ToString();
+                    count = count + amnt;
+                    txtbx_subtotal.Text = count.ToString();
+                }
+
+                else if (lstbx_appliances.Text == "Flat Iron")
+                {
+                    lstbx_unitprice.Items.Add("350.00");
+                    int amnt = 350 * quant;
+                    txtbx_amount.Text = amnt.ToString();
+                    count = count + amnt;
+                    txtbx_subtotal.Text = count.ToString();
+                }
+
+                else if (lstbx_appliances.Text == "Karaoke")
+                {
+                    lstbx_unitprice.Items.Add("2,500.00");
+                    int amnt = 2500 * quant;
+                    txtbx_amount.Text = amnt.ToString();
+                    count = count + amnt;
+                    txtbx_subtotal.Text = count.ToString();
+                }
+
+                else if (lstbx_appliances.Text == "Microwave Oven")
+                {
+                    lstbx_unitprice.Items.Add("3,000.00");
+                    int amnt = 3000 * quant;
+                    txtbx_amount.Text = amnt.ToString();
+                    count = count + amnt;
+                    txtbx_subtotal.Text = count.ToString();
+                }
+
+                else if (lstbx_appliances.Text == "Mini Component")
+                {
+                    lstbx_unitprice.Items.Add("3,500.00");
+                    int amnt = 3500 * quant;
+                    txtbx_amount.Text = amnt.ToString();
+                    count = count + amnt;
+                    txtbx_subtotal.Text = count.ToString();
+                }
+
+                else if (lstbx_appliances.Text == "Oven Toaster")
+                {
+                    lstbx_unitprice.Items.Add("550.00");
+                    int amnt = 550 * quant;
+                    txtbx_amount.Text = amnt.ToString();
+                    count = count + amnt;
+                    txtbx_subtotal.Text = count.ToString();
+                }
+
+                else if (lstbx_appliances.Text == "Refrigerator")
+                {
+                    lstbx_unitprice.Items.Add("9,000.00");
+                    int amnt = 9000 * quant;
+                    txtbx_amount.Text = amnt.ToString();
+                    count = count + amnt;
+                    txtbx_subtotal.Text = count.ToString();
+                }
+
+                else if (lstbx_appliances.Text == "Rice Cooker")
+                {
+                    lstbx_unitprice.Items.Add("600.00");
+                    int amnt = 600 * quant;
+                    txtbx_amount.Text = amnt.ToString();
+                    count = count + amnt;
+                    txtbx_subtotal.Text = count.ToString();
+                }
+
+                else if (lstbx_appliances.Text == "Television")
+                {
+                    lstbx_unitprice.Items.Add("5,000.00");
+                    int amnt = 5000 * quant;
+                    txtbx_amount.Text = amnt.ToString();
+                    count = count + amnt;
+                    txtbx_subtotal.Text = count.ToString();
+                }
+
+                else if (lstbx_appliances.Text == "VCD Player")
+                {
+                    lstbx_unitprice.Items.Add("1,200.00");
+                    int amnt = 1200 * quant;
+                    txtbx_amount.Text = amnt.ToString();
+                    count = count + amnt;
+                    txtbx_subtotal.Text = count.ToString();
+                }
+
+                else if (lstbx_appliances.Text == "Washing Machine")
+                {
+                    lstbx_unitprice.Items.Add("4,000.00");
+                    int amnt = 4000 * quant;
+                    txtbx_amount.Text = amnt.ToString();
+                    count = count + amnt;
+                    txtbx_subtotal.Text = count.ToString();
+                }
+            }
+        }
+
+        private void btn_cash_Click(object sender, EventArgs e)
+        {
+            btn_Compute.Enabled = true;
+        }
+
+        private void btn_Compute_Click(object sender, EventArgs e)
+        {
+            double a = Convert.ToDouble(txtbx_subtotal.Text);
+            double b = a * 0.05;
+            double resultcash = a - b;
+            txtbx_total.Text = resultcash.ToString();
+            btn_New.Enabled = true;
+            btn_Clear.Enabled = true;
+            btn_Close.Enabled = true;
+        }
+
+        private void btn_change_Click(object sender, EventArgs e)
+        {
+            double x = Convert.ToDouble(txtbx_amounttendered.Text);
+            double y = Convert.ToDouble(txtbx_total.Text);
+
+            if (x >= y)
+            {
+                double result = x - y;
+                txtbx_change.Text = result.ToString();
+            }
+
+            else
+            {
+                MessageBox.Show("Please enter valid amount.");
+            }
+        }
+
+        private void btn_New_Click(object sender, EventArgs e)
+        {
+            txtbx_amount.Clear();
+            txtbx_amounttendered.Clear();
+            txtbx_change.Clear();
+            txtbx_subtotal.Clear();
+            txtbx_total.Clear();
+            lstbx_soldappliances.Items.Clear();
+            lstbx_unitprice.Items.Clear();
+            num_quantity.Value = 0;
+		btn_New.Enabled = false;
+            btn_Clear.Enabled = false;
+            btn_Close.Enabled = false;
+        }
+
+        private void btn_Clear_Click(object sender, EventArgs e)
+        {
+            lstbx_soldappliances.Items.Clear();
+            lstbx_unitprice.Items.Clear();
+            num_quantity.Value = 0;
+
+        }
+
+        private void btn_charge_Click(object sender, EventArgs e)
+        {
+            btn_compute2.Visible = true;
+        }
+
+        private void btn_Close_Click(object sender, EventArgs e)
+        {
+            label11.Visible = false;
+            btn_change.Visible = false;
+            txtbx_amounttendered.Visible = false;
+            txtbx_change.Visible = false;
+            label12.Visible = true;
+        }
+
+        private void btn_compute2_Click(object sender, EventArgs e)
+        {
+            double a = Convert.ToDouble(txtbx_subtotal.Text);
+            double b = a * 0.05;
+            double resultcash = a + b;
+            txtbx_total.Text = resultcash.ToString();
+            btn_New.Enabled = true;
+            btn_Clear.Enabled = true;
+            btn_Close.Enabled = true;
+        }
+
+
+    }
+    
+}
