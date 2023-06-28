@@ -1,0 +1,92 @@
+/*
+* Created by SharpDevelop.
+* User: Ann
+* Date: 6/5/2021
+* Time: 4:55 PM
+*
+* To change this template use Tools | Options | Coding | Edit Standard Headers.
+*/
+using System;
+using System.Collections.Generic;
+using System.Drawing;
+using System.Windows.Forms;
+namespace Pizza
+{
+ /// <summary>
+ /// Description of MainForm.
+ /// </summary>
+ public partial class MainForm : Form
+ {
+ public MainForm()
+ {
+ //
+ // The InitializeComponent() call is required for Windows Forms designer support.
+ //
+ InitializeComponent();
+ }
+
+ //
+ // TODO: Add constructor code after the InitializeComponent() call.
+ //
+
+
+ void DeluxerbtCheckedChanged(object sender, EventArgs e)
+ {
+ if (deluxerbt.Checked == true)
+ {
+ cheesecbx.Checked = true;
+ bachamcbx.Checked = true;
+ onioncbx.Checked = true;
+ pricetbx.Text = "185";
+ }
+ }
+ void SpecialrbtCheckedChanged(object sender, EventArgs e)
+ {
+ if (specialrbt.Checked)
+
+ {
+ cheesecbx.Checked = true;
+ peppercbx.Checked = true;
+ bachamcbx.Checked = true;
+ mushcbx.Checked = true;
+ pricetbx.Text = "275";
+ }
+ }
+
+ void PrimorbtCheckedChanged(object sender, EventArgs e)
+ {
+ if (primorbt.Checked)
+ {
+ cheesecbx.Checked = true;
+ peppercbx.Checked = true;
+ bachamcbx.Checked = true;
+ mushcbx.Checked = true;
+ onioncbx.Checked = true;
+ tomcbx.Checked = true;
+ salamicbx.Checked = true;
+ pricetbx.Text = "350";
+ }
+ }
+ void ComputebtnClick(object sender, EventArgs e)
+ {
+ int x;
+ int y;
+ int result;
+
+ if (int.TryParse(pricetbx.Text, out x))
+ {
+ if (int.TryParse(quantbx.Text, out y))
+ {
+ result = x*y;
+ totaltbx.Text = result.ToString();
+ totaltbx.Text= string.Format("Php {0:#,0.00}", result);
+ }
+
+ else
+ {
+ MessageBox.Show("Input Quantity again.");
+
+ }
+ }
+ }
+ }
