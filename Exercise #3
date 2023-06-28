@@ -1,0 +1,40 @@
+using System;
+using System.Collections.Generic;
+using System.Drawing;
+using System.Windows.Forms;
+
+namespace Presidential_Elections_2010
+{
+    /// <summary>
+    /// Description of MainForm.
+    /// </summary>
+    public partial class MainForm : Form
+    {
+        public MainForm()
+        {
+            //
+            // The InitializeComponent() call is required for Windows Forms designer support.
+            //
+            InitializeComponent();
+            
+            //
+            // TODO: Add constructor code after the InitializeComponent() call.
+            //
+        }
+        void Button1Click(object sender, EventArgs e)
+        {
+            if (textBox1.Text == "12345")
+            {
+                MessageBox.Show("ID accepted... " + "\nName: Richard Gwapo", "ID Entry", MessageBoxButtons.OK);
+                Hide();
+                var f2 = new Form2();
+                f2.Show();
+            }
+            
+            else
+            {
+                MessageBox.Show("Invalid Voters ID. Try again", "ID Entry", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning);
+            }
+        }
+    }
+}
