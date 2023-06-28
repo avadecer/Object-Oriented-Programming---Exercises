@@ -1,0 +1,123 @@
+/*
+ * Created by SharpDevelop.
+ * User: Ann
+ * Date: 6/24/2021
+ * Time: 2:58 PM
+ * 
+ * To change this template use Tools | Options | Coding | Edit Standard Headers.
+ */
+using System;
+using System.Drawing;
+using System.Windows.Forms;
+
+namespace Presidential_Elections_2010
+{
+    /// <summary>
+    /// Description of Form2.
+    /// </summary>
+    public partial class Form2 : Form
+    {
+        public Form2()
+        {
+            //
+            // The InitializeComponent() call is required for Windows Forms designer support.
+            //
+            InitializeComponent();
+            
+            //
+            // TODO: Add constructor code after the InitializeComponent() call.
+            //
+            
+        }
+        
+        private int countnoli = 0;
+        private int countval = 0;
+        private int countlester = 0;
+        private int countgwapo = 0;
+        
+        void BtnVoteClick(object sender, EventArgs e)
+        {
+             if (comboBox1.SelectedItem == "NOLI") 
+                    {
+                       countnoli +=1;
+                    txtbxNoli.Text = countnoli.ToString();
+                }
+             
+              if (comboBox1.SelectedItem == "VAL") 
+                    {
+                    countval +=1;
+                    txtboxVal.Text = countval.ToString();
+                }
+              
+              if (comboBox1.SelectedItem == "LESTER") 
+                    {
+                    countlester +=1;
+                    txtbxLester.Text = countlester.ToString();
+                }
+              
+              if (comboBox1.SelectedItem == "GWAPO") 
+                    {
+                    countgwapo +=1;
+                    txtbxGwapo.Text = countgwapo.ToString();
+                }
+        }
+        
+        void BtnResultClick(object sender, EventArgs e)
+        {
+            int a = Convert.ToInt32(txtbxNoli.Text);
+            int b = Convert.ToInt32(txtboxVal.Text);
+            int c = Convert.ToInt32(txtbxLester.Text);
+            int d = Convert.ToInt32(txtbxGwapo.Text);
+            
+            if (a>b)
+            {
+                if (a>c)
+                {
+                    if (a>d)
+                    {
+                        MessageBox.Show("And the winner is: Noli", "Winner", MessageBoxButtons.OK);
+                    }
+                }
+            }
+                
+            if (b>c)
+            {
+                if (b>a)
+                {
+                    if (b>d)
+                    {
+                        MessageBox.Show("And the winner is: Val", "Winner", MessageBoxButtons.OK);
+                    }
+                }
+            }
+            
+            if (c>b)
+            {
+                if (c>a)
+                {
+                    if (c>d)
+                    {
+                        MessageBox.Show("And the winner is: Lester", "Winner", MessageBoxButtons.OK);
+                    }
+                }
+            }
+            
+            if (d>a)
+            {
+                if (d>b)
+                {
+                    if (d>c)
+                    {
+                        MessageBox.Show("And the winner is: Gwapo", "Winner", MessageBoxButtons.OK);
+                    }
+                }
+            }
+        }
+        void BtnCloseClick(object sender, EventArgs e)
+        {
+            var f1 = new MainForm();
+            f1.Show();
+            Hide();
+        }
+}
+ }
