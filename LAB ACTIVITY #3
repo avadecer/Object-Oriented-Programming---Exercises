@@ -1,0 +1,53 @@
+/*
+* Created by SharpDevelop.
+* User: Ann
+* Date: 5/12/2021
+* Time: 9:59 PM
+*
+* To change this template use Tools | Options | Coding | Edit Standard Headers.
+*/
+using System;
+using System.Collections.Generic;
+using System.Drawing;
+using System.Windows.Forms;
+namespace Celsius_and_Fahrenheit_Temperature_Converter
+{
+ /// <summary>
+ /// Description of MainForm.
+ /// </summary>
+ public partial class MainForm : Form
+ {
+ public MainForm()
+ {
+ //
+ // The InitializeComponent() call is required for Windows Forms designer support.
+ //
+ InitializeComponent();
+
+ //
+ // TODO: Add constructor code after the InitializeComponent() call.
+ //
+ }
+ void Button2Click(object sender, EventArgs e)
+ {
+ int x = Convert.ToInt16(textBox1.Text);
+ double result = (5.0/9.0) * (x -32);
+ textBox2.Text = result.ToString();
+ }
+ void Button1Click(object sender, EventArgs e)
+ {
+ int y = Convert.ToInt16(textBox1.Text);
+ double result = (y * 9.0/5.0) + 32;
+ textBox2.Text = result.ToString();
+ }
+ void Button3Click(object sender, EventArgs e)
+ {
+ textBox1.Clear();
+ textBox2.Clear();
+ }
+ void Button4Click(object sender, EventArgs e)
+ {
+ Application.Exit();
+ }
+ }
+}
