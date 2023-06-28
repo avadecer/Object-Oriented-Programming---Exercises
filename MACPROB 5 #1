@@ -1,0 +1,53 @@
+/*
+* Created by SharpDevelop.
+* User: Ann
+* Date: 6/5/2021
+* Time: 4:32 PM
+*
+* To change this template use Tools | Options | Coding | Edit Standard Headers.
+*/
+using System;
+using System.Collections.Generic;
+using System.Drawing;
+using System.Windows.Forms;
+namespace Color_Theme
+{
+ /// <summary>
+ /// Description of MainForm.
+ /// </summary>
+ public partial class MainForm : Form
+ {
+ public MainForm()
+ {
+ //
+ // The InitializeComponent() call is required for Windows Forms designer support.
+ //
+ InitializeComponent();
+
+ //
+ // TODO: Add constructor code after the InitializeComponent() call.
+ //
+
+ }
+ void RadioButton1CheckedChanged(object sender, EventArgs e)
+ {
+ this.BackColor= Color.Yellow;
+ }
+ void RadioButton2CheckedChanged(object sender, EventArgs e)
+ {
+ this.BackColor= Color.Red;
+ }
+ void RadioButton3CheckedChanged(object sender, EventArgs e)
+ {
+ this.BackColor= Color.White;
+ }
+ void RadioButton4CheckedChanged(object sender, EventArgs e)
+ {
+ this.BackColor=SystemColors.Control;
+ }
+ void Button1Click(object sender, EventArgs e)
+ {
+ Application.Exit();
+ }
+ }
+}
