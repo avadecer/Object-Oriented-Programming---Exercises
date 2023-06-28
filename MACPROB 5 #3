@@ -1,0 +1,145 @@
+/*
+* Created by SharpDevelop.
+* User: Ann
+* Date: 6/5/2021
+* Time: 7:06 PM
+*
+* To change this template use Tools | Options | Coding | Edit Standard Headers.
+*/
+using System;
+using System.Collections.Generic;
+using System.Drawing;
+using System.Windows.Forms;
+namespace SimpleCalc
+{
+ /// <summary>
+ /// Description of MainForm.
+ /// </summary>
+ public partial class MainForm : Form
+ {
+ public MainForm()
+ {
+ //
+ // The InitializeComponent() call is required for Windows Forms designer support.
+ //
+ InitializeComponent();
+
+ //
+ // TODO: Add constructor code after the InitializeComponent() call.
+ //
+ }
+ void AddrbtCheckedChanged(object sender, EventArgs e)
+ {
+ if (addrbt.Checked)
+ {
+ int x;
+ int y;
+ int result;
+
+ if (int.TryParse(textBox1.Text, out x))
+ {
+ if (int.TryParse(textBox2.Text, out y))
+ {
+
+ result = x + y;
+ textBox3.Text = result.ToString();
+ }
+
+ else
+ {
+ MessageBox.Show("Invalid Data. Try again");
+ }
+ }
+
+ }
+ }
+ void SubtrbtCheckedChanged(object sender, EventArgs e)
+ {
+ if (subtrbt.Checked)
+ {
+ int x;
+ int y;
+ int result;
+
+ if (int.TryParse(textBox1.Text, out x))
+ {
+ if (int.TryParse(textBox2.Text, out y))
+ {
+
+ result = x - y;
+ textBox3.Text = result.ToString();
+ }
+
+ else
+ {
+ MessageBox.Show("Invalid Data. Try again");
+ }
+ }
+ }
+ }
+ void MultrbtnCheckedChanged(object sender, EventArgs e)
+ {
+ if (multrbtn.Checked)
+ {
+ int x;
+ int y;
+ int result;
+
+ if (int.TryParse(textBox1.Text, out x))
+ {
+ if (int.TryParse(textBox2.Text, out y))
+ {
+
+ result = x*y;
+ textBox3.Text = result.ToString();
+ }
+
+ else
+ {
+ MessageBox.Show("Invalid Data. Try again");
+ }
+ }
+
+ }
+ }
+ void DivrbtCheckedChanged(object sender, EventArgs e)
+ {
+ if (divrbt.Checked)
+ {
+ int x;
+ int y;
+ int result;
+
+ if (int.TryParse(textBox1.Text, out x))
+ {
+ if (int.TryParse(textBox2.Text, out y))
+ {
+
+ result = x/y;
+ textBox3.Text = result.ToString();
+ }
+
+ else
+ {
+ MessageBox.Show("Invalid Data. Try again");
+ }
+ }
+
+ }
+ }
+ void Button1Click(object sender, EventArgs e)
+ {
+ textBox1.Clear();
+ textBox2.Clear();
+ textBox3.Clear();
+ addrbt.Checked = false;
+ subtrbt.Checked = false;
+ multrbtn. Checked = false;
+ divrbt. Checked = false;
+ }
+ void Button2Click(object sender, EventArgs e)
+ {
+ Application.Exit();
+ }
+ }
+}
