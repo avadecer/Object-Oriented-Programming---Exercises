@@ -1,0 +1,107 @@
+/*
+ * Created by SharpDevelop.
+ * User: Ann
+ * Date: 6/23/2021
+ * Time: 4:30 PM
+ * 
+ * To change this template use Tools | Options | Coding | Edit Standard Headers.
+ */
+using System;
+using System.Collections.Generic;
+using System.Drawing;
+using System.Windows.Forms;
+
+namespace Sample_ListView
+{
+    /// <summary>
+    /// Description of MainForm.
+    /// </summary>
+    public partial class MainForm : Form
+    {
+        public MainForm()
+        {
+            //
+            // The InitializeComponent() call is required for Windows Forms designer support.
+            //
+            InitializeComponent();
+            
+            //
+            // TODO: Add constructor code after the InitializeComponent() call.
+            //
+        }
+        
+        
+        void StnumKeyPress(object sender, KeyPressEventArgs e)
+        {
+             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                    e.Handled = true;
+             }
+        }
+        
+        private int number = 1;
+        void Button1Click(object sender, EventArgs e)
+        {
+            number++;
+            stnum.Text = number.ToString().PadLeft(3, '0');
+            stname.Clear();
+            course.Clear();
+        }
+        
+        void Button4Click(object sender, EventArgs e)
+        {
+            {
+            if (MessageBox.Show("Delete items from all the lists?", "DELETE", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning)==DialogResult.OK)
+                stnum.Clear();
+                stname.Clear();
+                course.Clear();
+            
+            while (listView1.SelectedItems.Count > 0)
+                 {
+                 listView1.Items.Remove(listView1.SelectedItems[0]);
+                 }
+            }
+        }
+    
+        void Button2Click(object sender, EventArgs e)
+        {
+            var Item = new ListViewItem(stnum.Text);
+            Item.SubItems.Add(stname.Text);
+            Item.SubItems.Add(course.Text);
+            listView1.Items.Add(Item);
+            {
+                if (string.IsNullOrEmpty(stnum.Text)||string.IsNullOrEmpty(stname.Text)||string.IsNullOrEmpty(course.Text))
+                {
+                    MessageBox.Show("Complete the needed information. Try again.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                     listView1.Items[listView1.Items.Count - 1].Remove();
+                }
+            }
+        }
+        void MainFormLoad(object sender, EventArgs e)
+        {
+            listView1.GridLines=true;
+            listView1.FullRowSelect=true;
+        }
+        void Button3MouseClick(object sender, MouseEventArgs e)
+        {
+            var Item = new ListViewItem(stnum.Text);
+            Item.SubItems.Add(stname.Text);
+            Item.SubItems.Add(course.Text);
+            string a = listView1.SelectedItems[0].Text;
+            string b = listView1.SelectedItems[0].SubItems[1].Text;
+            string c = listView1.SelectedItems[0].SubItems[2].Text;
+            
+            MessageBox.Show( a + "," + b + "," + c);
+            
+        }
+void Button3Click(object sender, EventArgs e)
+        {
+            string num = listView1.FullRowSelect.ToString();
+            string name = listView1.FullRowSelect.ToString();
+            string crs = listView1.FullRowSelect.ToString();
+            
+            MessageBox.Show(num + "," + name + "," + crs);
+        }
+        
+    }
+}
