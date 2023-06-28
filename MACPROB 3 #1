@@ -1,0 +1,56 @@
+/*
+* Created by SharpDevelop.
+* User: Ann
+* Date: 5/15/2021
+* Time: 7:46 PM
+*
+* To change this template use Tools | Options | Coding | Edit Standard Headers.
+*/
+using System;
+using System.Collections.Generic;
+using System.Drawing;
+using System.Windows.Forms;
+namespace Exercise_4_1
+{
+ /// <summary>
+ /// Description of MainForm.
+ /// </summary>
+ public partial class MainForm : Form
+ {
+ public MainForm()
+ {
+ //
+ // The InitializeComponent() call is required for Windows Forms designer support.
+ //
+ InitializeComponent();
+
+ //
+ // TODO: Add constructor code after the InitializeComponent() call.
+ //
+ }
+ void Btn1CheckedChanged(object sender, EventArgs e)
+ {
+ this.textBox1.Text="Radio Button 1 Clicked";
+ }
+ void Btn2CheckedChanged(object sender, EventArgs e)
+ {
+ this.textBox1.Text="Radio Button 2 Clicked";
+ }
+ void Btn3CheckedChanged(object sender, EventArgs e)
+ {
+ this.textBox1.Text="Radio Button 3 Clicked";
+ }
+ void Chk1CheckedChanged(object sender, EventArgs e)
+ {
+ this.textBox2.Text="Check box 1 Clicked";
+ }
+ void Chk2CheckedChanged(object sender, EventArgs e)
+ {
+ this.textBox2.Text="Check box 2 Clicked";
+ }
+ void Chk3CheckedChanged(object sender, EventArgs e)
+ {
+ this.textBox2.Text="Check box 3 Clicked";
+ }
+ }
+}
